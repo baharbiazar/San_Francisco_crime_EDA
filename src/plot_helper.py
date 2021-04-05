@@ -99,21 +99,107 @@ def plot_cats_per_year(df , date_col, cat_col):
     return axs
 
 
+def plot_violent_years(df18 , df19, df20):
+
+    '''
+    returns a bar plot comparing violent crime counts 
+    '''
+
+    viol_cat_18=df18.groupby('Incident Category').count().sort_values(by='Row ID').reset_index(drop= False)
+    viol_cat_19=df19.groupby('Incident Category').count().sort_values(by='Row ID').reset_index(drop= False)
+    viol_cat_20=df20.groupby('Incident Category').count().sort_values(by='Row ID').reset_index(drop= False)
+
+
+    fig , ax = plt.subplots(figsize=(10,6))  
+
+    x= np.arange(7)
+
+    u= viol_cat_18['Row ID']
+    v= viol_cat_19['Row ID']
+    w= viol_cat_20['Row ID']
+
+
+    ax.bar(x+0.2 ,w, width= 0.2 , label = '2020')
+    ax.bar(x,v, width= 0.2, label = '2019')
+    ax.bar(x-0.2, u , width = 0.2 , label = '2018')
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(viol_cat_20['Incident Category'], rotation =90)
+    plt.title('SF Violent Crime Counts: Mar-Dec')
+    plt.legend()
+    plt.xticks(fontsize  = 13)
+
+    plt.savefig('../images/viol_comp.png', dpi=80, bbox_inches='tight')
+
+    return ax
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+def plot_prop_years(df18 , df19, df20):
     
+    '''
+    returns a bar plot comparing porperty crime counts 
+    '''
+
+    prop_cat_18=df18.groupby('Incident Category').count().sort_values(by='Row ID').reset_index(drop= False)
+    prop_cat_19=df19.groupby('Incident Category').count().sort_values(by='Row ID').reset_index(drop= False)
+    prop_cat_20=df20.groupby('Incident Category').count().sort_values(by='Row ID').reset_index(drop= False)
+
+
+    fig , ax = plt.subplots(figsize=(10,6))  
+
+    x= np.arange(4)
+
+    p= prop_cat_18['Row ID']
+    q= prop_cat_19['Row ID']
+    r= prop_cat_20['Row ID']
+
+
+    ax.bar(x+0.2 ,r, width= 0.2 , label = '2020')
+    ax.bar(x,q, width= 0.2, label = '2019')
+    ax.bar(x-0.2, p , width = 0.2 , label = '2018')
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(prop_cat_20['Incident Category'], rotation =90)
+
+    plt.title('SF Property Crime Counts: Mar-Dec')
+    plt.xticks(fontsize  = 13)
+    plt.legend()
+
+    plt.savefig('../images/property_comp.png', dpi=80, bbox_inches='tight')
+
+    return ax
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
 
 

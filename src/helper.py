@@ -110,8 +110,70 @@ def crime_per_year(df, year , year_col):
     df_year = df[df[year_col] == year].reset_index(drop = True )
     return df_year
     
-def plot_crime_count_monthly(df):
-    pass
+def violent_(df):
+    '''
+    returns a df with only violent crime categories 
+    '''
+
+    violent = df[(df['Incident Category'] == 'Homicide')
+                |(df['Incident Category'] == 'Rape')
+                |(df['Incident Category'] == 'Robbery')
+                |(df['Incident Category'] == 'Assault')
+                |(df['Incident Category'] == 'Traffic Violation Arrest')
+                |(df['Incident Category'] == 'Offences Against The Family And Children')
+                |(df['Incident Category'] == 'Drug Offense')].reset_index(drop= True)
+
+    return violent
+
+def property_(df):
+    '''
+    returns a df with only property crime categories 
+    '''
+
+
+    property_= df[(df['Incident Category'] == 'Burglary')
+                |(df['Incident Category'] == 'Motor Vehicle Theft')
+                |(df['Incident Category'] == 'Larceny Theft')
+                |(df['Incident Category'] == 'Arson')].reset_index(drop= True)
+
+    return property_
+
+def property_after_date(df , year, month):
+
+    '''
+    returns a df with property crimes in a certain year, 
+    after a certain month
+
+    df = dataframe
+    year = int
+    month = int
+    '''
+
+    p = df[(df['Incident Year'] == year) & (df['Incident Date'].dt.month > month)].reset_index(drop=True)
+
+
+    return p
+
+
+def violent_after_date(df , year, month):
+
+    '''
+    returns a df with violent crimes in a certain year, 
+    after a certain month
+
+    df = dataframe
+    year = int
+    month = int
+    '''
+
+    p = df[(df['Incident Year'] == year) & (df['Incident Date'].dt.month > month)].reset_index(drop=True)
+
+
+    return p
+
+
+    
+
 
 
     

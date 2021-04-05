@@ -26,10 +26,30 @@ After importing and extracting the columns I needed in `pandas`, I took an overa
 
 ![](images/total_counts.png)
 
-Should I be comfortable to announce San Francisco as a safe city?
-Next step is to take a closer look. Below graph shows how crime rate was more or less the same pattern as before in 2020, until shelter-in-place was ordered on March 17, 2020. 
-Dramatic drop in crime rates! 
+<br>Should I be comfortable to announce San Francisco as a safe city?
+<br>Next step is to take a closer look. Below graph shows how crime rate was more or less the same pattern as before in 2020, until shelter-in-place was ordered on March 17, 2020. 
+Dramatic drop in crime rates!
+<br> 
+<br> 
+
 ![](images/monthly.png)
+
+Graphs below show the crime count per category in the past three years. It seems Larceny theft is still leading in 2020.
+
+![](images/cat_per_year.png)
+
+
+
+Crime Types:
+
+ Voilent Crimes | Property Crimes
+ ---|---
+ Homicide| Burglary
+ Rape| Larceny theft
+Robbery | Auto theft
+Assult |Arson
+Human trafficking
+
 
 
 

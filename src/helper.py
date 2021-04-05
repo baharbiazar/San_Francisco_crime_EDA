@@ -89,7 +89,7 @@ def plot_crime_per_year(df,years, year_col):
         x, y = p.get_xy() 
         ax.annotate(f'{height}', (x+ width/4 , y+ height+3))
 
-    plt.savefig('../images/total_counts.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../images/total_counts.png', dpi=80, bbox_inches='tight')
 
     return ax
 

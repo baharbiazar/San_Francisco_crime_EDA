@@ -29,6 +29,8 @@ After importing and extracting the columns I needed in `pandas`, I took an overa
 Should I be comfortable to announce San Francisco as a safe city?
 Next step is to take a closer look. Below graph shows how crime rate was more or less the same pattern as before in 2020, until shelter-in-place was ordered on March 17, 2020. 
 Dramatic drop in crime rates! 
+![](images/monthly.png)
+
 
 
 

@@ -42,6 +42,8 @@ Graphs below show the crime count per category in the past three years. It seems
 
 ![](images/property_comp.png)
 
+#### Big increases in some non-violent crimes
+
 Crime Types:
 
  Voilent Crimes | Property Crimes
@@ -51,6 +53,9 @@ Crime Types:
 Robbery | Auto theft
 Assult |Arson
 Human trafficking
+
+
+
 
 
 

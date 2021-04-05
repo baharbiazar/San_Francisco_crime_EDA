@@ -156,9 +156,9 @@ def plot_prop_years(df18 , df19, df20):
     r= prop_cat_20['Row ID']
 
 
-    ax.bar(x+0.2 ,r, width= 0.2 , label = '2020')
-    ax.bar(x,q, width= 0.2, label = '2019')
-    ax.bar(x-0.2, p , width = 0.2 , label = '2018')
+    ax.bar(x+0.1 ,r, width= 0.1 , label = '2020')
+    ax.bar(x,q, width= 0.1, label = '2019')
+    ax.bar(x-0.1, p , width = 0.1 , label = '2018')
 
     ax.set_xticks(x)
     ax.set_xticklabels(prop_cat_20['Incident Category'], rotation =90)
@@ -168,6 +168,115 @@ def plot_prop_years(df18 , df19, df20):
     plt.legend()
 
     plt.savefig('../images/property_comp.png', dpi=80, bbox_inches='tight')
+
+    return ax
+
+
+def plot_viol_subcats(df19 , df20):
+
+    '''
+    returns a plot with violent sub categories, showing 2020 growth rate 
+    '''
+
+    viol_sub_19 = df19.groupby(['Incident Category', 'Incident Subcategory']).count().sort_values(by=['Incident Category','Row ID'], ascending = False).reset_index()
+    viol_sub_20 = df20.groupby(['Incident Category', 'Incident Subcategory']).count().sort_values(by=['Incident Category','Row ID'], ascending = False).reset_index()
+
+    leftv= viol_sub_19[['Incident Category' , 'Incident Subcategory' , 'Row ID']]
+    leftv.rename(columns={'Row ID' : '2019 Count'} , inplace= True)
+
+
+    rightv = viol_sub_20[['Incident Category' , 'Incident Subcategory' , 'Row ID']]
+    rightv.rename(columns={'Row ID' : '2020 Count'} , inplace= True)
+
+    compare_viol = pd.merge(leftv, rightv, how = 'left', on =['Incident Category' , 'Incident Subcategory'])
+
+    compare_viol['growth'] = round((((compare_viol['2020 Count'] - compare_viol['2019 Count'])*100)/ compare_viol['2019 Count']), 2)
+
+    
+    
+    fig , ax = plt.subplots(figsize= (12,10))
+
+    plt.barh(compare_viol['Incident Subcategory'] , compare_viol['growth'] ,color=(compare_viol['growth'] > 0).map({True: 'r',
+                                                        False: 'b'}), edgecolor= None)
+
+    plt.title('SF Violent Crime Change: 2019-2020 , Mar-Dec')
+
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+        
+    plt.yticks(fontsize=14)
+    #ax.axes.get_xaxis().set_visible(False)
+    ax.tick_params(axis="y", left=False)
+
+
+    for p in ax.patches:
+        width = p.get_width()
+        height = p.get_height()
+        x, y = p.get_xy() 
+        if width>0:
+            ax.annotate(f'{width}%', (x + width+ 1
+                                    , y+ height/2.5))
+            
+        else:
+            ax.annotate(f'{width}%', (x + width -22 , y+ height/2.5))
+
+    plt.savefig('../images/sub_viol.png', dpi=80, bbox_inches='tight')
+    return ax
+        
+        
+
+
+def plot_prop_subcats(df19 , df20):
+
+    '''
+    returns a plot with violent sub categories, showing 2020 growth rate 
+    '''
+
+    prop_sub_19 = df19.groupby(['Incident Category', 'Incident Subcategory']).count().sort_values(by=['Incident Category','Row ID'], ascending = False).reset_index()
+    prop_sub_20 = df20.groupby(['Incident Category', 'Incident Subcategory']).count().sort_values(by=['Incident Category','Row ID'], ascending = False).reset_index()
+
+    leftp= prop_sub_19[['Incident Category' , 'Incident Subcategory' , 'Row ID']]
+    leftp.rename(columns={'Row ID' : '2019 Count'} , inplace= True)
+
+
+    rightp = prop_sub_20[['Incident Category' , 'Incident Subcategory' , 'Row ID']]
+    rightp.rename(columns={'Row ID' : '2020 Count'} , inplace= True)
+
+    compare_prop = pd.merge(leftp, rightp, how = 'left', on =['Incident Category' , 'Incident Subcategory'])
+
+    compare_prop['growth'] = round((((compare_prop['2020 Count'] - compare_prop['2019 Count'])*100)/ compare_prop['2019 Count']), 2)
+
+    
+    
+    fig , ax = plt.subplots(figsize= (12,10))
+
+    plt.barh(compare_prop['Incident Subcategory'] , compare_prop['growth'] ,color=(compare_prop['growth'] > 0).map({True: 'r',
+                                                        False: 'b'}), edgecolor= None)
+
+    plt.title('SF Property Crime Change: 2019-2020 , Mar-Dec')
+
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+        
+    plt.yticks(fontsize=14)
+    #ax.axes.get_xaxis().set_visible(False)
+    ax.tick_params(axis="y", left=False)
+
+
+    for p in ax.patches:
+        width = p.get_width()
+        height = p.get_height()
+        x, y = p.get_xy() 
+        if width>0:
+            ax.annotate(f'{width}%', (x + width+ 1
+                                    , y+ height/2.5))
+            
+        else:
+            ax.annotate(f'{width}%', (x + width -22 , y+ height/2.5))
+
+    plt.savefig('../images/sub_prop.png', dpi=80, bbox_inches='tight')
 
     return ax
 

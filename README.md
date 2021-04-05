@@ -38,7 +38,9 @@ Graphs below show the crime count per category in the past three years. It seems
 
 ![](images/cat_per_year.png)
 
+![](images/viol_comp.png)
 
+![](images/property_comp.png)
 
 Crime Types:
 

@@ -274,7 +274,7 @@ def plot_prop_subcats(df19 , df20):
                                     , y+ height/2.5))
             
         else:
-            ax.annotate(f'{width}%', (x + width -22 , y+ height/2.5))
+            ax.annotate(f'{width}%', (x + width -18 , y+ height/2.5))
 
     plt.savefig('../images/sub_prop.png', dpi=80, bbox_inches='tight')
 

@@ -59,7 +59,24 @@ crime comparison based on type
 
 ![](images/sub_prop.png)
 
+
+
 #### Big increases in some non-violent crimes
+
+Burglary and Motor Vehicle Theft have grown over the past year.(March- Dec)
+
+Map below is made with geopandas and shows where each crime happened over those 10 months. 
+
+![](images/geop.png)
+
+
+
+
+### Motor Vehicle Theft Pattern:
+
+
+
+
 
 
 

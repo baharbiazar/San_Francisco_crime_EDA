@@ -70,7 +70,8 @@ Map below is made with geopandas and shows where each crime happened over those 
 ![](images/geop.png)
 
 
-
+![](images/burg.png)
+![](images/vtheft.png)
 
 ### Motor Vehicle Theft Pattern:
 

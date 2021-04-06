@@ -67,7 +67,7 @@ Burglary and Motor Vehicle Theft have grown over the past year.(March- Dec)
 
 Map below is made with geopandas and shows where each crime happened over those 10 months. 
 
-![](images/geop.png)
+![](images/burg_vtheft.png)
 
 
 ![](images/burg.png)

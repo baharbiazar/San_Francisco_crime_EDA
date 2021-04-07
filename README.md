@@ -48,12 +48,13 @@ Crime Types:
 Robbery | Auto theft
 Assult |Arson
 Human trafficking
+
+
+
 crime comparison based on type
 
-<p float="left">
-  <img src="images/viol_comp.png" width="400" />
-  <img src="images/property_comp.png" width="400" /> 
-</p>
+![](images/viol_comp.png)
+![](images/property_comp.png)
 
 ![](images/sub_viol.png)
 

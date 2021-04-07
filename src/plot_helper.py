@@ -13,6 +13,8 @@ import folium
 from folium import plugins
 import json
 
+import seaborn as sns
+
 
 def plot_crime_by_month(df , date_col):
     '''
@@ -35,12 +37,12 @@ def plot_crime_by_month(df , date_col):
     n= grouped.iloc[12:24, 2]
     o= grouped.iloc[24:36, 2]
 
-    ax.plot(x , m , label = '2018' , color = 'b')
-    ax.scatter(x,m, color = 'b')
-    ax.plot(x , n , label = '2019', color= 'g')
-    ax.scatter(x,n, color = 'g')
-    ax.plot(x , o , label= '2020', color = 'coral')
-    ax.scatter(x,o, color = 'coral')
+    ax.plot(x , m , label = '2018' , color = '#8a66aa')
+    ax.scatter(x,m, color = '#8a66aa')
+    ax.plot(x , n , label = '2019', color= '#5397cd')
+    ax.scatter(x,n, color = '#5397cd')
+    ax.plot(x , o , label= '2020', color = '#d25b5b')
+    ax.scatter(x,o, color = '#d25b5b')
     plt.title('SF Monthly Crime Counts')
     plt.legend()
 
@@ -84,13 +86,13 @@ def plot_cats_per_year(df , date_col, cat_col):
     fig , axs = plt.subplots (3,1, figsize = (12, 18))
     #fig.tight_layout()
 
-    axs[0].barh(a,b)
+    axs[0].barh(a,b, color = '#8a66aa')
     axs[0].set_title('SF Crime Count per Category, 2018')
 
-    axs[1].barh(c,d)
+    axs[1].barh(c,d , color = 'steelblue')
     axs[1].set_title('SF Crime Count per Category, 2019')
 
-    axs[2].barh(e,f)
+    axs[2].barh(e,f, color = 'red')
     axs[2].set_title('SF Crime Count per Category, 2020')
     axs[2].set_xlim(0, 51000)
 
@@ -121,10 +123,12 @@ def plot_violent_years(df18 , df19, df20):
 
     ax.bar(x+0.2 ,w, width= 0.2 , label = '2020')
     ax.bar(x,v, width= 0.2, label = '2019')
-    ax.bar(x-0.2, u , width = 0.2 , label = '2018')
+    ax.bar(x-0.2, u , width = 0.2 , label = '2018', color = '#8a66aa')
 
     ax.set_xticks(x)
-    ax.set_xticklabels(viol_cat_20['Incident Category'], rotation =90)
+    ax.set_xticklabels(viol_cat_20['Incident Category'], rotation =60)
+    ax.set_xticklabels(['Homicide' , 'Rape', 'Traffic Violation', 'Drug Offense', 'Family Offense', 'Robbery', 'Assault'])
+
     plt.title('SF Violent Crime Counts: Mar-Dec')
     plt.legend()
     plt.xticks(fontsize  = 13)
@@ -161,7 +165,8 @@ def plot_prop_years(df18 , df19, df20):
     ax.bar(x-0.1, p , width = 0.1 , label = '2018')
 
     ax.set_xticks(x)
-    ax.set_xticklabels(prop_cat_20['Incident Category'], rotation =90)
+    ax.set_xticklabels(prop_cat_20['Incident Category'], rotation =60)
+    
 
     plt.title('SF Property Crime Counts: Mar-Dec')
     plt.xticks(fontsize  = 13)
@@ -177,6 +182,9 @@ def plot_viol_subcats(df19 , df20):
     '''
     returns a plot with violent sub categories, showing 2020 growth rate 
     '''
+
+    df19=df19[(df19['Incident Subcategory'] != 'Loitering') & (df19['Incident Subcategory'] != 'Drug Violation')]
+    df20=df20[df20['Incident Subcategory'] != 'Loitering']
 
     viol_sub_19 = df19.groupby(['Incident Category', 'Incident Subcategory']).count().sort_values(by=['Incident Category','Row ID'], ascending = False).reset_index()
     viol_sub_20 = df20.groupby(['Incident Category', 'Incident Subcategory']).count().sort_values(by=['Incident Category','Row ID'], ascending = False).reset_index()
@@ -199,11 +207,13 @@ def plot_viol_subcats(df19 , df20):
     plt.barh(compare_viol['Incident Subcategory'] , compare_viol['growth'] ,color=(compare_viol['growth'] > 0).map({True: 'r',
                                                         False: 'b'}), edgecolor= None)
 
-    plt.title('SF Violent Crime Change: 2019-2020 , Mar-Dec')
+    plt.title('SF Violent Crime Growth: 2019-2020 (Mar-Dec)')
 
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
     ax.spines['left'].set_visible(False)
+
+    ax.set_xlim(-150, 220)
         
     plt.yticks(fontsize=14)
     #ax.axes.get_xaxis().set_visible(False)
@@ -254,7 +264,7 @@ def plot_prop_subcats(df19 , df20):
     plt.barh(compare_prop['Incident Subcategory'] , compare_prop['growth'] ,color=(compare_prop['growth'] > 0).map({True: 'r',
                                                         False: 'b'}), edgecolor= None)
 
-    plt.title('SF Property Crime Change: 2019-2020 , Mar-Dec')
+    plt.title('SF Property Crime Growth: 2019-2020 (Mar-Dec)')
 
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)

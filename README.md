@@ -61,6 +61,9 @@ crime comparison based on type
 
 
 
+
+
+
 #### Big increases in some non-violent crimes
 
 Burglary and Motor Vehicle Theft have grown over the past year.(March- Dec)
@@ -76,6 +79,7 @@ Map below is made with geopandas and shows where each crime happened over those 
 ### Motor Vehicle Theft Pattern:
 
 
+![](images/choropleth.html')
 
 
 

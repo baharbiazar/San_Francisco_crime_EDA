@@ -41,39 +41,51 @@ Graphs below show the crime count per category in the past three years. It seems
 
 Crime Types:
 
- Voilent Crimes | Property Crimes
+Voilent Crimes |Property Crimes
  ---|---
- Homicide| Burglary
- Rape| Larceny theft
+Homicide| Burglary
+Rape| Larceny theft
 Robbery | Auto theft
 Assult |Arson
-Human trafficking
+Drug Offense
 
 
 
-crime comparison based on type
+
+Property crimes happen more frequently compared to violent crimes. 
+
+XXXXX percent of San Francisco crimes in 2020 from March to end of December is property and only XXXX percent is violent crimes.
+
+Graphs below compare the total counts of each categorty in the past three years, March- December.
 
 ![](images/viol_comp.png)
 ![](images/property_comp.png)
+
+
+Violent crimes are decreased according to the data. It makes sense because there is less people out and about but also there might be some data missing in categories like Rape or Family Offense.
+
+#### There is Big increases in some non-violent crimes. 
+Larceny Theft is decreased by XXXX count but there are XXXX more Burglaries and XXXX more Motor Vehicle Thefts compared to 2019.
+
+Looking closely at the subcategories of crime, 
+
+There is a chance that with further analysis we conclude the financial impact of each crime is higher.
+
 
 ![](images/sub_viol.png)
 
 ![](images/sub_prop.png)
 
 
+Petty thefts are lower but there are more burglaries and vehicle theft or auto parts theft.
 
-
-
-
-#### Big increases in some non-violent crimes
-
-Burglary and Motor Vehicle Theft have grown over the past year.(March- Dec)
-
-A "Hot Prowl" is a burglary when a subject enters, or attempts to enter your home while someone is home. A hot prowl burglary is dangerous because of the possible confrontation between the subject and victim
+A "Hot Prowl" is a burglary when a subject enters, or attempts to enter your home while someone is home. A hot prowl burglary is dangerous because of the possible confrontation between the subject and victim.
 
 Map below is made with geopandas and shows where each crime happened over those 10 months. 
 
 ![](images/burg_vtheft.png)
+
+
 
 
 ![](images/burg.png)

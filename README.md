@@ -80,12 +80,18 @@ There is a chance that with further analysis we conclude the financial impact of
 Petty thefts are lower but there are more burglaries and vehicle theft or auto parts theft.
 
 A "Hot Prowl" is a burglary when a subject enters, or attempts to enter your home while someone is home. A hot prowl burglary is dangerous because of the possible confrontation between the subject and victim.
+1008 hot prowls in 2020
+511 hot prowls in 2019
+
+
+
+
 
 Map below is made with geopandas and shows where each crime happened over those 10 months. 
 
-![](images/burg_vtheft.png)
+![](images/hood-burg.png)
 
-
+![](images/hood-vtheft.png)
 
 
 ![](images/burg.png)

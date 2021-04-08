@@ -4,7 +4,7 @@
 
 ## Background & Motivation
 
-Criminal researches have confirmed that there are clear patterns of crime, with concentrations in specific places at specific times. Studying crime patterns can help identifying crime hotspots and guide desicion makers to implement more sustainable solutions at macro and micro scales.
+Criminal researches have confirmed that there are clear patterns of crime, with concentrations in specific places at specific times. Studying crime patterns can help authorities to identify crime hotspots and guide desicion makers to implement more sustainable solutions at macro and micro scales.
 
 In this EDA, I used SF Police Department Incident Reports (2018-2020) to answer the following questions:
 
@@ -84,18 +84,30 @@ A "Hot Prowl" is a burglary when a subject enters, or attempts to enter your hom
 511 hot prowls in 2019
 
 
+## When do Burglaries and Vehicle Thefts happen?
+I expected to see a pattern in incident times.
+The following kernel density estimation (KDE) joint-plots shows this expectation and reveals that late late to early morning is particularly bad for burglary between 1am and 5pm except for Fridays and I assume that's because more poeple are out of their houses in the evevning and more burglaries happen around that time. 
 
 
+![](images/burg.png)
 
-Map below is made with geopandas and shows where each crime happened over those 10 months. 
+On the other hand, the peak time for vehicle theft is between 4pm to 9pm, during weekdays. Friday night is the busiest time for auto thefts too!
+![](images/vtheft.png)
+
+## Burglary and Vehicle Theft hot spots
+Maps below -made with Folium- show which neighborhoods are hotspots for burglary and vehicle theft in 10 months of 2020. 
 
 ![](images/hood-burg.png)
 
 ![](images/hood-vtheft.png)
 
+Now that we know those areas, we can take a closer look at each site to detect the problematic nodes and implement action plans. 
+Mission is one of the neighborhoods with high rates in both of the crime types.
 
-![](images/burg.png)
-![](images/vtheft.png)
+
+
+
+
 
 ### Motor Vehicle Theft Pattern:
 

@@ -69,6 +69,8 @@ crime comparison based on type
 
 Burglary and Motor Vehicle Theft have grown over the past year.(March- Dec)
 
+A "Hot Prowl" is a burglary when a subject enters, or attempts to enter your home while someone is home. A hot prowl burglary is dangerous because of the possible confrontation between the subject and victim
+
 Map below is made with geopandas and shows where each crime happened over those 10 months. 
 
 ![](images/burg_vtheft.png)

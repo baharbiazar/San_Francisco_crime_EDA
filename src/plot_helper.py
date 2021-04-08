@@ -37,12 +37,12 @@ def plot_crime_by_month(df , date_col):
     n= grouped.iloc[12:24, 2]
     o= grouped.iloc[24:36, 2]
 
-    ax.plot(x , m , label = '2018' , color = '#8a66aa')
-    ax.scatter(x,m, color = '#8a66aa')
-    ax.plot(x , n , label = '2019', color= '#5397cd')
-    ax.scatter(x,n, color = '#5397cd')
-    ax.plot(x , o , label= '2020', color = '#d25b5b')
-    ax.scatter(x,o, color = '#d25b5b')
+    ax.plot(x , m , label = '2018' , color = '#e1ad01')
+    ax.scatter(x,m, color = '#e1ad01')
+    ax.plot(x , n , label = '2019', color= 'steelblue')
+    ax.scatter(x,n, color = 'steelblue')
+    ax.plot(x , o , label= '2020', color = 'navy')
+    ax.scatter(x,o, color = 'navy')
     plt.title('SF Monthly Crime Counts')
     plt.legend()
 
@@ -86,13 +86,13 @@ def plot_cats_per_year(df , date_col, cat_col):
     fig , axs = plt.subplots (3,1, figsize = (12, 18))
     #fig.tight_layout()
 
-    axs[0].barh(a,b, color = '#8a66aa')
+    axs[0].barh(a,b, color = '#e1ad01')
     axs[0].set_title('SF Crime Count per Category, 2018')
 
     axs[1].barh(c,d , color = 'steelblue')
     axs[1].set_title('SF Crime Count per Category, 2019')
 
-    axs[2].barh(e,f, color = 'red')
+    axs[2].barh(e,f, color = 'navy')
     axs[2].set_title('SF Crime Count per Category, 2020')
     axs[2].set_xlim(0, 51000)
 
@@ -121,9 +121,9 @@ def plot_violent_years(df18 , df19, df20):
     w= viol_cat_20['Row ID']
 
 
-    ax.bar(x+0.2 ,w, width= 0.2 , label = '2020')
-    ax.bar(x,v, width= 0.2, label = '2019')
-    ax.bar(x-0.2, u , width = 0.2 , label = '2018', color = '#8a66aa')
+    ax.bar(x+0.2 ,w, width= 0.2 , label = '2020', color = 'navy')
+    ax.bar(x,v, width= 0.2, label = '2019', color = "steelblue")
+    ax.bar(x-0.2, u , width = 0.2 , label = '2018', color = '#e1ad01')
 
     ax.set_xticks(x)
     ax.set_xticklabels(viol_cat_20['Incident Category'], rotation =60)
@@ -160,9 +160,9 @@ def plot_prop_years(df18 , df19, df20):
     r= prop_cat_20['Row ID']
 
 
-    ax.bar(x+0.1 ,r, width= 0.1 , label = '2020')
-    ax.bar(x,q, width= 0.1, label = '2019')
-    ax.bar(x-0.1, p , width = 0.1 , label = '2018')
+    ax.bar(x+0.1 ,r, width= 0.1 , label = '2020', color = 'navy')
+    ax.bar(x,q, width= 0.1, label = '2019' , color = 'steelblue')
+    ax.bar(x-0.1, p , width = 0.1 , label = '2018', color = '#e1ad01')
 
     ax.set_xticks(x)
     ax.set_xticklabels(prop_cat_20['Incident Category'], rotation =60)
@@ -214,9 +214,14 @@ def plot_viol_subcats(df19 , df20):
     ax.spines['left'].set_visible(False)
 
     ax.set_xlim(-150, 220)
+    
         
     plt.yticks(fontsize=14)
     #ax.axes.get_xaxis().set_visible(False)
+    plt.xlabel('percent', fontsize= 14 )
+
+
+
     ax.tick_params(axis="y", left=False)
 
 
@@ -271,6 +276,7 @@ def plot_prop_subcats(df19 , df20):
     ax.spines['left'].set_visible(False)
         
     plt.yticks(fontsize=14)
+    plt.xlabel('percent', fontsize= 14 )
     #ax.axes.get_xaxis().set_visible(False)
     ax.tick_params(axis="y", left=False)
 

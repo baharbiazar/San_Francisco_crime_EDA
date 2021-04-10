@@ -43,7 +43,10 @@ def plot_crime_by_month(df , date_col):
     ax.scatter(x,n, color = 'steelblue')
     ax.plot(x , o , label= '2020', color = 'navy')
     ax.scatter(x,o, color = 'navy')
+
+    ax.set_ylabel('Count')
     plt.title('SF Monthly Crime Counts')
+
     plt.legend()
 
     plt.savefig('../images/monthly.png', dpi=80, bbox_inches='tight')
@@ -213,7 +216,7 @@ def plot_viol_subcats(df19 , df20):
     ax.spines['top'].set_visible(False)
     ax.spines['left'].set_visible(False)
 
-    ax.set_xlim(-150, 220)
+    ax.set_xlim(-150, 250)
     
         
     plt.yticks(fontsize=14)
@@ -234,7 +237,7 @@ def plot_viol_subcats(df19 , df20):
                                     , y+ height/2.5))
             
         else:
-            ax.annotate(f'{width}%', (x + width -22 , y+ height/2.5))
+            ax.annotate(f'{width}%', (x + width -25 , y+ height/2.5))
 
     plt.savefig('../images/sub_viol.png', dpi=80, bbox_inches='tight')
     return ax
@@ -279,6 +282,7 @@ def plot_prop_subcats(df19 , df20):
     plt.xlabel('percent', fontsize= 14 )
     #ax.axes.get_xaxis().set_visible(False)
     ax.tick_params(axis="y", left=False)
+    ax.set_xlim(-110, 150)
 
 
     for p in ax.patches:

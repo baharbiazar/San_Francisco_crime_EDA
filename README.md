@@ -116,3 +116,9 @@ Map below is also made with Folium and shows the critical nodes for both Burglar
 
 ![](images/choropleth.html')
 
+
+
+## Next Steps:
+1- Build machine learning models such as KNN or Random Forest for crime prediction.
+2- Update data frequently to compare crime behaviour changes through time.
+3- Compare SF crime rate with the rest of the Bay Area. Has the crime locations shifted during the pandemic?

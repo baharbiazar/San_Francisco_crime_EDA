@@ -4,7 +4,7 @@
 
 ## Background & Motivation
 
-Criminal researches have confirmed that there are clear patterns of crime, with concentrations in specific places at specific times. Studying crime patterns can help authorities to identify crime hotspots and guide desicion makers to implement more sustainable solutions at macro and micro scales.
+Crime pattern analysis uncovers the underlying interactive process between crime events by discovering where, when, and why particular crimes are likely to occur. The outcomes improve our understanding of the dynamics of unlawful activities and can enhance predictive policing.
 
 In this EDA, I used SF Police Department Incident Reports (2018-2020) to answer the following questions:
 
